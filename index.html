@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Project 3 - PCR analysis</title>
 </head>
 <body>
@@ -58,7 +59,7 @@
         </div>
 
         <h2 id="MCQtitle" style="padding-left: 8vw">Check your knowledge!</h2>
-        <div class = "multiple-choice">
+        <div class = "multiple-choice" id="multiple-choice">
             <div class="mc mc1">
                 <h2>Q1</h2>
                 <p>What is the Answer?</p>
@@ -101,7 +102,7 @@
                 <button id="B" style="position:absolute; left: 28vw;">Back</button>
                 <button id="N" style="position:absolute; right: 12vw;">Next</button>
                 <button id="Submit" style="position:absolute; right: 34vw;">Check</button>
-                <button id="Restart" type="submit" style="position:absolute; right: 12vw; display:none;" onClick="window.location.hash = '#MCQtitle'; window.location.reload();">Restart</button>
+                <button id="Restart" type="submit" style="position:absolute; right: 12vw; display:none;" >Restart</button>
             </div>
             <div class="MCQexplain" align="center">We explain here why the chosen answer is wrong etc..</div>
             <div style="height: 8vw"></div>
@@ -175,11 +176,19 @@ document.querySelector("#B").addEventListener('click', function(){
     };
     document.querySelector("#Restart").style.display = 'none';
 });
+function Reset(item, label) {
+    item.style.backgroundColor="";
+};
+document.querySelector("#Restart").addEventListener('click', function(){
+    var Labels = document.querySelectorAll("label");
+    Labels.forEach(Reset);
+});
 
 document.querySelector("#Submit").addEventListener('click', function(){
     var _userAnswer = document.querySelector('input[name="q' +  currentMC.toString()+'"]:checked');
     var _userAnswerLabel = document.querySelector("label[for = '" + _userAnswer.id + "']");
     var _rightAnswer = document.querySelector("label[for = 'q" + currentMC.toString() + "-" + Answer[currentMC-1].toString() + "']");
+    _userAnswer.checked= false;
     if(_userAnswer.value == Answer[currentMC-1].toString()){
         _userAnswerLabel.style.backgroundColor = "green";
         document.querySelector("#Submit").style.display = "none";
@@ -195,7 +204,11 @@ document.querySelector("#Submit").addEventListener('click', function(){
 
     //document.querySelector("#Submit").innerHTML = document.querySelector('input[name="q' +  currentMC.toString()+'"]:checked').value;
 });
+
+
+
 </script>
+
 <style>
     body{
         margin: 0;
