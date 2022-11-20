@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <title>Project 3 - PCR analysis</title>
+</head>
+<body>
+    <div id="divider" style="width:20%;">
+        <div style="width:20%; background: white; color:black;" id="menu">
+            <div id="title"> PCR Analysis</div>
+            <div class="section">
+                <a href="#section1">Section 1</a>
+            </div>
+            <div class="section">
+                <a href="#section2">Section 2</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <h1>PCR Data Analysis</h1>
+        <h2 id="section1">Section 1: Amplification Plot
+            <hr class="title-line" align = "left">
+        </h2>
+        <div class = "explain" align="left">
+            <p>
+                Some interesting things listed blah blah blah<br>
+                Some interesting things listed blah blah blah<br>
+                Some interesting things listed blah blah blah<br>
+                Some interesting things listed blah blah blah<br>
+                Some interesting things listed blah blah blah<br>
+            </p>
+        </div>
+
+        <div id="graph">
+            <iframe  style="display:block; margin:auto;" src="https://www.desmos.com/calculator/uuktmo4al5" width="800" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+        </div>
+
+        <div class = "video" align="left">
+            <iframe style="display:block; margin:auto;" width="560" height="315" src="https://www.youtube.com/embed/iu4s3Hbc_bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <h2 id="section2">Section 2: Calculation
+            <hr class="title-line" align = "left">
+        </h2>
+
+        <div class = "explain" align="left">
+            <p>
+                Some interesting things listed blah blah blah<br>
+                Some interesting things listed blah blah blah<br>
+                Some interesting things listed blah blah blah<br>
+                Some interesting things listed blah blah blah<br>
+            </p>
+
+            <iframe  style="display:block; margin:auto;" src="https://docs.google.com/spreadsheets/d/16KNWrB7OcTImObJIRUJvx-2qbkSn0knaOuWZvbLHvow/edit?usp=sharing" width="800" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+        </div>
+
+        <h2 id="MCQtitle" style="padding-left: 8vw">Check your knowledge!</h2>
+        <div class = "multiple-choice">
+            <div class="mc mc1">
+                <h2>Q1</h2>
+                <p>What is the Answer?</p>
+                <input id="q1-1" type="radio" name="q1" value="1">
+                <label for="q1-1">Third Choice</label>
+                <input id="q1-2" type="radio" name="q1" value="2">
+                <label for="q1-2">First Choice</label>
+                <input id="q1-3" type="radio" name="q1" value="3">
+                <label for="q1-3">Second Choice</label>
+                <input id="q1-4" type="radio" name="q1" value="4">
+                <label for="q1-4">Fourth Choice</label>
+            </div>
+            <div class="mc mc2">
+                <h2>Q2</h2>
+                <p>Choose your best Answer</p>
+                <input id="q2-1" type="radio" name="q2" value="1">
+                <label for="q2-1">Second Choice</label>
+                <input id="q2-2" type="radio" name="q2" value="2">
+                <label for="q2-2">First Choice</label>
+                <input id="q2-3" type="radio" name="q2" value="3">
+                <label for="q2-3">Fourth Choice</label>
+                <input id="q2-4" type="radio" name="q2" value="4">
+                <label for="q2-4">None</label>
+            </div>
+            <div class="mc mc3">
+                <h2>Q3</h2>
+                <p>What is the difference between the target gene and the house keeping gene?</p>
+                <input id="q3-1" type="radio" name="q3" value="1">
+                <label for="q3-1">No difference</label>
+                <input id="q3-2" type="radio" name="q3" value="2">
+                <label for="q3-2">target gene is not from RNA and house keeping gene is from RNA</label>
+                <input id="q3-3" type="radio" name="q3" value="3">
+                <label for="q3-3">target gene is the gene we are interested in and house keeping gene is the 'control'</label>
+                <input id="q3-4" type="radio" name="q3" value="4">
+                <label for="q3-4">None of these</label>
+            </div>
+
+            <br><br>
+            <div style="margin:0;" align="center">
+                <button id="B" style="position:absolute; left: 28vw;">Back</button>
+                <button id="N" style="position:absolute; right: 12vw;">Next</button>
+                <button id="Submit" style="position:absolute; right: 34vw;">Check</button>
+                <button id="Restart" type="submit" style="position:absolute; right: 12vw; display:none;" onClick="window.location.reload()">Restart</button>
+            </div>
+            <div class="MCQexplain" align="center">We explain here why the chosen answer is wrong etc..</div>
+            <div style="height: 8vw"></div>
+
+        </div>
+
+    </div>
+</body>
+<script>
+document.querySelector(".MCQexplain").style.display = 'none';
+document.querySelector(".mc2").style.display = 'none';
+document.querySelector(".mc3").style.display = 'none';
+
+var currentMC = 1;
+var lastMC = 3;
+var Answer = [4,3,3];
+var Checked = [];
+document.querySelector("#B").style.display = 'none';
+document.querySelector("#N").addEventListener('click', function(){
+    var _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'none';
+    currentMC += 1;
+    _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'block';
+    document.querySelector(".MCQexplain").style.display = "none";
+
+    if(Checked.includes(currentMC)){
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "block";
+    }
+    else{
+        document.querySelector("#Submit").style.display = "block";
+        document.querySelector(".MCQexplain").style.display = "none";
+    }
+
+
+    if(currentMC == 2)
+    {
+        document.querySelector("#B").style.display = 'block';
+    };
+    if(currentMC == lastMC)
+    {
+        document.querySelector("#N").style.display = 'none';
+        document.querySelector("#Restart").style.display = 'block';
+    };
+});
+
+document.querySelector("#B").addEventListener('click', function(){
+    var _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'none';
+    currentMC -= 1;
+    _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'block';
+
+    if(Checked.includes(currentMC)){
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "block";
+    }
+    else{
+        document.querySelector("#Submit").style.display = "block";
+        document.querySelector(".MCQexplain").style.display = "none";
+    }
+
+    if(currentMC == 1)
+    {
+        document.querySelector("#B").style.display = 'none';
+    };
+    if(currentMC == lastMC -1)
+    {
+        document.querySelector("#N").style.display = 'block';
+    };
+    document.querySelector("#Restart").style.display = 'none';
+});
+
+document.querySelector("#Submit").addEventListener('click', function(){
+    var _userAnswer = document.querySelector('input[name="q' +  currentMC.toString()+'"]:checked');
+    var _userAnswerLabel = document.querySelector("label[for = '" + _userAnswer.id + "']");
+    var _rightAnswer = document.querySelector("label[for = 'q" + currentMC.toString() + "-" + Answer[currentMC-1].toString() + "']");
+    if(_userAnswer.value == Answer[currentMC-1].toString()){
+        _userAnswerLabel.style.backgroundColor = "green";
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "block";
+    }
+    else{
+        _userAnswerLabel.style.backgroundColor = "red";
+        _rightAnswer.style.backgroundColor="green";
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "block";
+    }
+    Checked.push(currentMC);
+
+    //document.querySelector("#Submit").innerHTML = document.querySelector('input[name="q' +  currentMC.toString()+'"]:checked').value;
+});
+</script>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    button{
+        margin: 0 5vw;
+        font-size: 1.5vw;
+        height: 3vw;
+        text-align:center;
+        background: white;
+    }
+    button:hover{
+        background-color: #266eff;
+        color:white;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"] + label {
+      background-color: white;
+      cursor: pointer;
+      display: block;
+      margin:auto;
+      height: auto;
+      width: 40vw;
+      text-align: center;
+      line-height: 2.5vw;
+      padding: 1.5vw 0;
+    }
+    input[type="radio"]:checked + label {
+      background-color: #266eff;
+      color:white;
+    }
+
+    .multiple-choice{
+        background:#c0e5f9;
+        width: 62vw;
+        height: auto;
+        margin: 2vw 7vw;
+    }
+
+    .multiple-choice p{
+        display:block;
+        width: 40vw;
+        margin: auto;
+        padding: 2vw 0;
+    }
+
+    .multiple-choice h2{
+        display:block;
+        width: 40vw;
+        margin: auto;
+    }
+
+    #graph{
+        background:black;
+        width: 62vw;
+        margin: 2vw 7vw;
+    }
+
+    .title-line {
+        background:black;
+        border: solid 1px black;
+        width: auto;
+        display: block;
+    }
+
+    .explain {
+        width: 62vw;
+        margin: 2vw 7vw;
+    }
+
+    .explain p{
+        font-size: 1.5vw;
+    }
+    .video {
+        width: 64vw;
+        margin: 2vw 6vw;
+    }
+
+    h1{
+        padding: 4vw 4vw;
+        text-align: left;
+        font-size: 4.5vw;
+        margin:0;
+    }
+
+    h2{
+        padding: 6vw 6vw 0 6vw;
+        text-align: left;
+        font-size: 3vw;
+        margin:0;
+    }
+
+    #main{
+        width:80%;
+        height:auto;
+        border: solid 5px white;
+    }
+
+    #menu{
+        border: solid 5px #266eff;
+        height: 100vh;
+        position: fixed;
+    }
+    #title{
+        color: white;
+        background: #266eff;
+        font-size: 250%;
+        padding: 20% 0%;
+        text-align:center;
+        margin: 0;
+    }
+
+    .section{
+        height: auto;
+        width: auto;
+        padding: 0;
+        margin: 0;
+        text-align:center;
+        padding: 2vw 0 2vw 0;
+        font-size: 2vw;
+    }
+
+    .section:hover{
+    background:#c0e5f9;
+    }
+
+    a{
+    text-decoration:none;
+    color:black;
+    }
+</style>
+</html>
