@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Project 3 - PCR analysis</title>
+</head>
+<body>
+<div style="position:fixed; left: 18vw; bottom: 3vw; font-size: 1.5vw;"><a href="main2-4.html">< Prev </a>  </div>
+    <div id="divider" style="width:15%;">
+        <div style="width:16%; background: white; color:black;" id="menu">
+            <div id="title"> <a href="index.html" style="color:white;">PCR Analysis</a></div>
+            <div class="section">
+                1. Amplification Plot
+                <a href="main1-1.html">1.1 Overview</a>
+                <a href="main1-2.html">1.2 Concept Review</a>
+                <a href="main1-3.html">1.3 Parameters</a>
+                <a href="main1-4.html">1.4 Summary</a>
+                <a href="main1-5.html">1.5 Concept Check</a>
+            </div>
+            <div class="section">
+                2. Calculations
+                <a href="main2-1.html">2.1 Overview</a>
+                <a href="main2-2.html">2.2 Calculation</a>
+                <a href="main2-3.html">2.3 Interpretation of Result</a>
+                <a href="main2-4.html">2.4 Summary</a>
+                <a href="main2-5.html">2.5 Concept Check</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <h1>Section 2: Calculations</h1>
+        <h2 id="section1">2.5  Concept Check
+            <hr class="title-line" align = "left">
+        </h2>
+        <div class = "multiple-choice" id="multiple-choice">
+            <div class="mc mc1">
+                <h2>Q1</h2>
+                <p style="font-size:1.25vw">In the ΔΔCt method, what does <img style="position:relative; top:0.5vw;" src="-deltadelta.jpg" alt="2^(-ΔΔCt)"> mean?</p>
+                <input id="q1-1" type="radio" name="q1" value="1">
+                <label for="q1-1">Fold change in target gene relative to housekeeping gene</label>
+                <input id="q1-2" type="radio" name="q1" value="2">
+                <label for="q1-2">Number of cycles performed by PCR on target gene</label>
+                <input id="q1-3" type="radio" name="q1" value="3">
+                <label for="q1-3">Number of cycles performed by PCR on housekeeping gene</label>
+                <input id="q1-4" type="radio" name="q1" value="4">
+                <label for="q1-4">Fold change in housekeeping gene relative to target gene</label>
+            </div>
+            <div class="mc mc2">
+                <h2>Q2</h2>
+                <p style="font-size:1.25vw">In the ΔΔCt method, which expression below represents the fold change in target gene?</p>
+                <input id="q2-1" type="radio" name="q2" value="1">
+                <label for="q2-1">ΔΔCt</label>
+                <input id="q2-2" type="radio" name="q2" value="2">
+                <label for="q2-2">-ΔΔCt</label>
+                <input id="q2-3" type="radio" name="q2" value="3">
+                <label for="q2-3"><img style="position:relative; top:0.5vw;" src="-deltadelta.jpg" alt="2^(-ΔΔCt)"></label>
+                <input id="q2-4" type="radio" name="q2" value="4">
+                <label for="q2-4"><img style="position:relative; top:0.5vw;" src="deltadelta.jpg" alt="2^(ΔΔCt)"></label>
+            </div>
+            <div class="mc mc3">
+                <h2>Q3</h2>
+                <p style="font-size:1.25vw">After performing aPCR, a student obtained the following data:
+                <br>
+                    <img src="MC2table.png" alt="table">
+                    <br>
+                    Which one is the correct interpretation?
+                </p>
+                <input id="q3-1" type="radio" name="q3" value="1">
+                <label for="q3-1">The target gene is twice more expressed relative to housekeeping gene</label>
+                <input id="q3-2" type="radio" name="q3" value="2">
+                <label for="q3-2">The target gene is 8 times more expressed relative to housekeeping gene</label>
+                <input id="q3-3" type="radio" name="q3" value="3">
+                <label for="q3-3">The target gene is twice less expressed relative to housekeeping gene</label>
+                <input id="q3-4" type="radio" name="q3" value="4">
+                <label for="q3-4">The target gene is 8 times less expressed relative to housekeeping gene</label>
+            </div>
+
+            <br><br>
+            <div style="margin:0;" align="center">
+                <button id="B" style="position:absolute; left: 28vw;">Back</button>
+                <button id="N" style="position:absolute; right: 12vw;">Next</button>
+                <button id="Submit" style="position:absolute; right: 34vw;">Check</button>
+                <button id="Restart" type="submit" style="position:absolute; right: 12vw; display:none;" >Restart</button>
+            </div>
+            <div style="width: 35vw; margin:auto; line-height: 1.5vw;" class="MCQexplain" align="center">We explain here why the chosen answer is wrong etc..</div>
+            <div style="height: 8vw"></div>
+
+        </div>
+
+
+
+    </div>
+</body>
+<script>
+document.querySelector(".MCQexplain").style.display = 'none';
+document.querySelector(".mc2").style.display = 'none';
+document.querySelector(".mc3").style.display = 'none';
+
+var currentMC = 1;
+var lastMC = 3;
+var Answer = [1,3,3];
+var explain = ["This value is the normalised Ct value of target gene which tells how many times the target gene is more expressed than the HK gene",
+"Ct is the number of PCR cycles. Since the gene expression doubles every cycle, the normalised Ct value should be put into power of 2 to get the fold change",
+"<img src='MC2explain.gif' alt='explain'> <br><br>Therefore, target gene expression is 0.5 time the HK gene."];
+var Checked = [];
+document.querySelector("#B").style.display = 'none';
+document.querySelector("#N").addEventListener('click', function(){
+    var _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'none';
+    currentMC += 1;
+    _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'block';
+    document.querySelector(".MCQexplain").style.display = "none";
+
+    if(Checked.includes(currentMC)){
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "block";
+        document.querySelector(".MCQexplain").innerHTML = explain[(currentMC-1)];
+    }
+    else{
+        document.querySelector("#Submit").style.display = "block";
+        document.querySelector(".MCQexplain").style.display = "none";
+    }
+
+
+    if(currentMC == 2)
+    {
+        document.querySelector("#B").style.display = 'block';
+    };
+    if(currentMC == lastMC)
+    {
+        document.querySelector("#N").style.display = 'none';
+        document.querySelector("#Restart").style.display = 'block';
+    };
+});
+
+document.querySelector("#B").addEventListener('click', function(){
+    var _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'none';
+    currentMC -= 1;
+    _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'block';
+
+    if(Checked.includes(currentMC)){
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "block";
+        document.querySelector(".MCQexplain").innerHTML = explain[(currentMC-1)];
+    }
+    else{
+        document.querySelector("#Submit").style.display = "block";
+        document.querySelector(".MCQexplain").style.display = "none";
+    }
+
+    if(currentMC == 1)
+    {
+        document.querySelector("#B").style.display = 'none';
+    };
+    if(currentMC == lastMC -1)
+    {
+        document.querySelector("#N").style.display = 'block';
+    };
+    document.querySelector("#Restart").style.display = 'none';
+});
+function Reset(item, label) {
+    item.style.backgroundColor="";
+};
+document.querySelector("#Restart").addEventListener('click', function(){
+    var Labels = document.querySelectorAll("label");
+    Labels.forEach(Reset);
+});
+
+document.querySelector("#Submit").addEventListener('click', function(){
+    var _userAnswer = document.querySelector('input[name="q' +  currentMC.toString()+'"]:checked');
+    var _userAnswerLabel = document.querySelector("label[for = '" + _userAnswer.id + "']");
+    var _rightAnswer = document.querySelector("label[for = 'q" + currentMC.toString() + "-" + Answer[currentMC-1].toString() + "']");
+    _userAnswer.checked= false;
+    if(_userAnswer.value == Answer[currentMC-1].toString()){
+        _userAnswerLabel.style.backgroundColor = "green";
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "none";
+    }
+    else{
+        _userAnswerLabel.style.backgroundColor = "red";
+        _rightAnswer.style.backgroundColor="green";
+        document.querySelector("#Submit").style.display = "none";
+        document.querySelector(".MCQexplain").style.display = "block";
+        document.querySelector(".MCQexplain").innerHTML = explain[(currentMC-1)];
+    }
+    Checked.push(currentMC);
+
+    //document.querySelector("#Submit").innerHTML = document.querySelector('input[name="q' +  currentMC.toString()+'"]:checked').value;
+});
+
+
+
+</script>
+
+</html>
