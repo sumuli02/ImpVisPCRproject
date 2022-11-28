@@ -169,10 +169,28 @@ document.querySelector("#B").addEventListener('click', function(){
 });
 function Reset(item, label) {
     item.style.backgroundColor="";
+
+};
+
+function ButtonReset(item, label){
+    item.checked = false;
 };
 document.querySelector("#Restart").addEventListener('click', function(){
     var Labels = document.querySelectorAll("label");
     Labels.forEach(Reset);
+    var _Answer = document.querySelectorAll('input:checked');
+    _Answer.forEach(ButtonReset);
+    Checked = [];
+    var _className = ".mc" + currentMC.toString();
+    document.querySelector(_className).style.display = 'none';
+    currentMC = 1;
+    _className = ".mc" + currentMC.toString();
+    document.querySelector("#Submit").style.display = "block";
+    document.querySelector(_className).style.display = 'block';
+    document.querySelector("#B").style.display = 'none';
+    document.querySelector("#N").style.display = 'block';
+    document.querySelector("#Restart").style.display = 'none';
+    document.querySelector(".MCQexplain").style.display = "none";
 });
 
 document.querySelector("#Submit").addEventListener('click', function(){

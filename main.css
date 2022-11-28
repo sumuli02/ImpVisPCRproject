@@ -54,7 +54,7 @@ body{
         margin: auto;
     }
 
-    #graph{
+    .graph{
         background:black;
         width: 62vw;
         margin: 2vw 7vw;
