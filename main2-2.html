@@ -37,10 +37,69 @@
         <h2 id="section1">2.2 Calculation
             <hr class="title-line" align = "left">
         </h2>
-
-        <div class = "explain" align="left">
+        
+        <h3>2.2.1 Delta-delta Ct method
+            <hr class="title-line" align = "left">
+        </h3>
+        
+        <div class = "explain" align="justify">
             <p>
-                Make a copy of the google sheet below and fill it with your lab data.
+                The <b>delta-delta Ct method</b>, is a simple formula used in order to calculate the relative fold gene expression of samples when performing qPCR. 
+                The overall formula to calculate the relative fold gene expression level can be presented as
+                <br>
+                $$2^{-∆∆Ct}$$
+                <br>
+                where Ct is the cycle threshold value.
+                <br>
+                <b>Meaning of this formula</b>
+                <br>
+                (i)	Double deltas
+                <br>
+                $∆$ is a mathematical symbol representing the change in a particular variable. Here, there are two deltas. 
+                The first delta indicates the change in Ct value of the treated sample relative to the untreated sample. In other words,
+                <br>
+                ∆∆Ct = ∆(Treated sample) - ∆(Untreated sample)
+                <br>
+                The second delta indicates the change in Ct value of the target gene with respect to the housekeeping gene, i.e.
+                <br>
+                ∆Ct = Ct(Target gene) - Ct(Housekeeping gene)
+                <br>
+                We calculate the change in Ct value of the two genes in both the treated and untreated samples.
+                <br>
+                (ii) Power of 2
+                <br>
+                To deduce conclusions for this experiment, we would like to calculate the fold change in gene expression 
+                of your target gene in experimental conditions, relative to control, which has been normalized to your housekeeping gene. 
+                This is the ratio between changes in Ct values in the treated sample to that in the untreated. 
+                <br>
+                The power of 2 accounts for the fact that every PCR cycle doubles the amount of the gene. 
+                The presence of minus sign in the formula is because Ct value decreases with the rate of gene expression, 
+                as illustrated in the previous section.
+                <br>
+                <b>Procedure of using the formula</b>
+                <ol>
+                    <li>	Average the Ct values for any technical replicates (called the normalized Ct value).
+                    <li>	Calculate the ∆Ct for each sample.
+                    <li>	Calculate the average ∆Ct for untreated sample.
+                    <li>	Calculate the ∆∆Ct for each sample.
+                    <li>	Calculate the fold gene expression values.
+                </ol>
+                
+            </p>
+            <br>
+        </div>
+        
+        <h3>2.2.2 Hands-on
+            <hr class="title-line" align = "left">
+        </h3>
+
+        <div class = "explain" align="justify">
+            <p>
+                Watch the following video about calculating the relative fold gene expression level using Google sheets.
+            </p>
+            <br>
+            <p>
+                Now, make a copy of the Google sheet below and fill it with your lab data.
             </p>
             <iframe  style="display:block; margin:auto;" src="https://docs.google.com/spreadsheets/d/18h0EllG82v__ZqO6HsGgzuegByfh2M7tSzANHCO6Ygs/edit?usp=sharing" width="800" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
 
