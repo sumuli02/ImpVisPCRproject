@@ -12,8 +12,9 @@
 <div style="position:fixed; right: 3vw; bottom: 3vw; font-size: 1.5vw;"><a href="main2-1.html">Next ></a>  </div>
     <div id="divider" style="width:15%;">
         <div style="width:16%; background: white; color:black;" id="menu">
-            <div id="title"> <a href="index.html" style="color:white;">PCR Analysis</a></div>
+            <div id="title"> qPCR Data Analysis </div>
             <div class="section">
+                <a style="font-size:1.6vw; padding-left:1vw" href="index.html">Introduction</a> <br><br>
                 1. Amplification Plot
                 <a href="main1-1.html">1.1 Overview</a>
                 <a href="main1-2.html">1.2 Concept Review</a>
@@ -24,10 +25,11 @@
             <div class="section">
                 2. Calculations
                 <a href="main2-1.html">2.1 Overview</a>
-                <a href="main2-2.html">2.2 Calculation</a>
-                <a href="main2-3.html">2.3 Interpretation of Result</a>
-                <a href="main2-4.html">2.4 Summary</a>
-                <a href="main2-5.html">2.5 Concept Check</a>
+                <a href="main2-2-1.html">2.2 ΔΔCt method</a>
+                <a href="main2-2-2.html">2.3 Hands-on</a>
+                <a href="main2-3.html">2.4 Interpretation of Result</a>
+                <a href="main2-4.html">2.5 Summary</a>
+                <a href="main2-5.html">2.6 Concept Check</a>
             </div>
         </div>
     </div>
@@ -38,9 +40,9 @@
             <hr class="title-line" align = "left">
         </h2>
         <div class = "multiple-choice" id="multiple-choice">
-            <div class="mc mc1" align = "justify">
+            <div class="mc mc1">
                 <h2>Q1</h2>
-                <p style="font-size:1.25vw">Suppose a qPCR is performed on gene A with appropriate fluorescence threshold. If the rate of gene expression is increases, how would the Ct value change?</p>
+                <p style="font-size:1.7vw">Suppose a qPCR is performed on gene A with appropriate fluorescence threshold. If the rate of gene expression is increases, how would the Ct value change?</p>
                 <input id="q1-1" type="radio" name="q1" value="1">
                 <label for="q1-1">Increases</label>
                 <input id="q1-2" type="radio" name="q1" value="2">
@@ -50,15 +52,13 @@
                 <input id="q1-4" type="radio" name="q1" value="4">
                 <label for="q1-4">It depends on the fluorescence threshold</label>
             </div>
-            <div class="mc mc2" align = "justify">
+            <div class="mc mc2">
                 <h2>Q2</h2>
-                <p style="font-size:1.25vw">A student performs qPCR and obtains the following amplification curve:
-                </p>
-                <br>
-                <p> <img src="MC1graph.png" alt="graph" width="350">
-                </p>
-                <br>
-                <p> Which of the following is a suitable fluorescence threshold for the experiment?
+                <p style="font-size:1.7vw">A student performs qPCR and obtains the following amplification curve
+                    <br>
+                    <img src="MC1graph.png" alt="graph" width="350">
+                    <br>
+                    Which of the following is a suitable fluorescence threshold for the experiment?
                 </p>
                 <input id="q2-1" type="radio" name="q2" value="1">
                 <label for="q2-1">1 unit</label>
@@ -69,9 +69,9 @@
                 <input id="q2-4" type="radio" name="q2" value="4">
                 <label for="q2-4">5 units</label>
             </div>
-            <div class="mc mc3" align = "justify">
+            <div class="mc mc3">
                 <h2>Q3</h2>
-                <p style="font-size:1.25vw">What factor does not affect Ct value of target gene?
+                <p style="font-size:1.7vw">What factor does not affect Ct value of target gene?
                 </p>
                 <input id="q3-1" type="radio" name="q3" value="1">
                 <label for="q3-1">Fluorescence strength threshold</label>
@@ -83,13 +83,14 @@
                 <label for="q3-4">Use of drug that inhibits gene expression</label>
             </div>
 
-            <br><br>
+            <br><br><br>
             <div style="margin:0;" align="center">
                 <button id="B" style="position:absolute; left: 28vw;">Back</button>
                 <button id="N" style="position:absolute; right: 12vw;">Next</button>
                 <button id="Submit" style="position:absolute; right: 34vw;">Check</button>
                 <button id="Restart" type="submit" style="position:absolute; right: 12vw; display:none;" >Restart</button>
             </div>
+            <br>
             <div style="width: 35vw; margin:auto; line-height: 1.5vw;" class="MCQexplain" align="left">We explain here why the chosen answer is wrong etc..</div>
             <div style="height: 8vw"></div>
 
