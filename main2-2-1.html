@@ -5,6 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <title>Project 3 - PCR analysis</title>
 </head>
 <body>
@@ -36,16 +37,70 @@
 
     <div id="main">
         <h1>Section 2: Calculations</h1>
-        <h2 id="section1">2.2 ΔΔCt method
+        <h2 id="section1">2.2 Delta-delta Ct method
             <hr class="title-line" align = "left">
         </h2>
-
-        <div class = "explain" align="left">
-
+        <div class = "explain" align="justify">
+            <p>
+                The <b>delta-delta Ct method</b>, is a simple formula used in order to calculate the relative fold gene expression of samples when performing qPCR. 
+                The overall formula to calculate the relative fold gene expression level can be presented as
+            </p>
+            <p>
+                <span class="math display">\[2^{-∆∆Ct}\]</span>
+            </p>
+            <p>
+                where Ct is the cycle threshold value.
+            </p>
+            <p>
+                <b>Meaning of this formula</b>
+            </p>
+            <p>
+                <u>(i)	Double deltas</u>
+            </p>
+            <p>
+                ∆ is a mathematical symbol representing the change in a particular variable. Here, there are two deltas. 
+                The first delta indicates the change in Ct value of the treated sample relative to the untreated sample. In other words,
+            </p>
+            <p>
+                <span class="math display">\[\text{∆∆Ct} = ∆(\text{Treated sample}) - ∆(\text{Untreated sample})\]</span>
+            </p>
+            <p>
+                The second delta indicates the change in Ct value of the target gene with respect to the housekeeping gene, i.e.
+            </p>
+            <p>
+                <span class="math display">\[∆\text{Ct} = \text{Ct}(\text{Target gene}) - \text{Ct}(\text{Housekeeping gene})\]</span>
+            </p>
+            <p>
+                We calculate the change in Ct value of the two genes in both the treated and untreated samples.
+            </p>
+            <p>
+                <u>(ii)	Power of 2</u>
+            </p>
+            <p>
+                To deduce conclusions for this experiment, we would like to calculate the fold change in gene expression 
+                of your target gene in experimental conditions, relative to control, which has been normalized to your housekeeping gene. 
+                This is the ratio between changes in Ct values in the treated sample to that in the untreated. 
+                <br>
+                <br>
+                The power of 2 accounts for the fact that every PCR cycle doubles the amount of the gene. 
+                The presence of minus sign in the formula is because Ct value decreases with the rate of gene expression, 
+                as illustrated in the previous section.
+                <br>
+                <br>
+            </p>
+            <p>
+                <b>Procedure of using the formula</b>
+                <ol>
+                    <li> Average the Ct values for any technical replicates (called the normalized Ct value).
+                    <li> Calculate the ∆Ct for each sample.
+                    <li> Calculate the average ∆Ct for untreated sample.
+                    <li> Calculate the ∆∆Ct for each sample.
+                    <li> Calculate the fold gene expression values.
+                </ol>
+                
+            </p>
         </div>
-        <div class = "video" align="left">
-            <iframe style="display:block; margin:auto;" width="900" height="500" src="https://www.youtube.com/embed/iu4s3Hbc_bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+
 <br> <br><br> <br>
 
 
