@@ -69,7 +69,7 @@ MathJax = {
                 <input id="q2-1" type="radio" name="q2" value="1">
                 <label for="q2-1">∆∆$Ct$</label>
                 <input id="q2-2" type="radio" name="q2" value="2">
-                <label for="q2-2">$-$ΔΔ$Ct$</label>
+                <label for="q2-2">$-$∆∆$Ct$</label>
                 <input id="q2-3" type="radio" name="q2" value="3">
                 <label for="q2-3">$2^{-\text{∆∆}Ct}$</label>
                 <input id="q2-4" type="radio" name="q2" value="4">
@@ -110,6 +110,15 @@ MathJax = {
     </div>
 </body>
 <script>
+    <script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 document.querySelector(".MCQexplain").style.display = 'none';
 document.querySelector(".mc2").style.display = 'none';
 document.querySelector(".mc3").style.display = 'none';
