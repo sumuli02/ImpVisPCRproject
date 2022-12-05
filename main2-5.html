@@ -67,9 +67,9 @@ MathJax = {
                 <h2>Question 2 of 3</h2>
                 <p style="font-size:1.7vw">In the ΔΔCt method, which expression below represents the fold change in target gene?</p>
                 <input id="q2-1" type="radio" name="q2" value="1">
-                <label for="q2-1">∆∆$Ct$</label>
+                <label for="q2-1">$\text{∆∆}Ct$</label>
                 <input id="q2-2" type="radio" name="q2" value="2">
-                <label for="q2-2">$-$∆∆$Ct$</label>
+                <label for="q2-2">$-\text{∆∆}Ct$</label>
                 <input id="q2-3" type="radio" name="q2" value="3">
                 <label for="q2-3">$2^{-\text{∆∆}Ct}$</label>
                 <input id="q2-4" type="radio" name="q2" value="4">
@@ -119,7 +119,7 @@ var lastMC = 3;
 var Answer = [1,3,3];
 var explain = ["This value is the normalised Ct value of target gene which tells how many times the target gene is more expressed than the housekeeping gene",
 "Ct is the number of PCR cycles. Since the gene expression doubles every cycle, the normalised Ct value should be put into power of 2 to get the fold change",
-"$∆\text{(Experimental)} = 24-25 = -1$ and $∆\text{(Control)} = 18-20 = -2$, so <br> \\(\text{∆∆Ct} = ∆\text{(Experimental)} - ∆\text{(Control)} = -1 -(-2) = 1 \\) <br> Therefore the fold change is $2^{-\text{∆∆}Ct} = 0.5$, i.e. the target gene expression is twice less expressed relative to the housekeeping gene."];
+"<img src='MC2explain.gif' alt='explain'> <br><br> Therefore the fold change is 0.5."];
 var Checked = [];
 document.querySelector("#B").style.display = 'none';
 document.querySelector("#N").addEventListener('click', function(){
