@@ -57,7 +57,7 @@
                 <h2>Question 2 of 3</h2>
                 <p style="font-size:1.7vw">In the ΔΔCt method, which expression below represents the fold change in target gene?</p>
                 <input id="q2-1" type="radio" name="q2" value="1">
-                <label for="q2-1">ΔΔCt</label>
+                <label for="q2-1"><span class="math display">\[∆∆Ct\]</span></label>
                 <input id="q2-2" type="radio" name="q2" value="2">
                 <label for="q2-2">-ΔΔCt</label>
                 <input id="q2-3" type="radio" name="q2" value="3">
@@ -69,7 +69,7 @@
                 <h2>Question 3 of 3</h2>
                 <p style="font-size:1.7vw">After performing aPCR, a student obtained the following data:
                 <br>
-                    <img src="MC2table.png" alt="table" height="300">
+                    <img src="MC2table.png" alt="table" height="200">
                     <br>
                     Which one is the correct interpretation?
                 </p>
@@ -107,7 +107,7 @@ document.querySelector(".mc3").style.display = 'none';
 var currentMC = 1;
 var lastMC = 3;
 var Answer = [1,3,3];
-var explain = ["This value is the normalised Ct value of target gene which tells how many times the target gene is more expressed than the HK gene",
+var explain = ["This value is the normalised Ct value of target gene which tells how many times the target gene is more expressed than the housekeeping gene",
 "Ct is the number of PCR cycles. Since the gene expression doubles every cycle, the normalised Ct value should be put into power of 2 to get the fold change",
 "<img src='MC2explain.gif' alt='explain'> <br><br>Therefore, target gene expression is 0.5 time the housekeeping gene."];
 var Checked = [];
