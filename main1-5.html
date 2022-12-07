@@ -206,11 +206,17 @@ document.querySelector("#Submit").addEventListener('click', function(){
         _userAnswerLabel.style.backgroundColor = "green";
         document.querySelector("#Submit").style.display = "none";
         document.querySelector(".MCQexplain").style.display = "none";
+        document.querySelector("#Submit").innerHTML =  "Check";
+        if(currentMC != lastMC) document.querySelector("#N").style.display = "block";
+        if(currentMC != 1) document.querySelector("#B").style.display = "block";
     }
     else{
         _userAnswerLabel.style.backgroundColor = "red";
-        _rightAnswer.style.backgroundColor="green";
-        document.querySelector("#Submit").style.display = "none";
+        //_rightAnswer.style.backgroundColor="green";
+        //document.querySelector("#Submit").style.display = "none";
+        document.querySelector("#Submit").innerHTML =  "Retry";
+        document.querySelector("#N").style.display = "none";
+        document.querySelector("#B").style.display = "none";
         document.querySelector(".MCQexplain").style.display = "block";
         document.querySelector(".MCQexplain").innerHTML = explain[(currentMC-1)];
     }
