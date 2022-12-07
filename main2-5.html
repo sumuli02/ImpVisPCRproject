@@ -100,7 +100,7 @@ MathJax = {
                 <button id="Submit" style="position:absolute; right: 34vw;">Check</button>
                 <button id="Restart" type="submit" style="position:absolute; right: 12vw; display:none;" >Restart</button>
             </div>
-            <div style="width: 35vw; margin:auto; line-height: 1.5vw; margin-top: 5vw;" class="MCQexplain" align="justify">We explain here why the chosen answer is wrong etc..</div>
+            <div style="width: 35vw; margin:auto; line-height: 1.5vw; margin-top: 5vw; font-size:1.2vw;" class="MCQexplain" align="justify">We explain here why the chosen answer is wrong etc..</div>
             <div style="height: 8vw"></div>
 
         </div>
@@ -119,7 +119,7 @@ var lastMC = 3;
 var Answer = [1,3,3];
 var explain = ["This value is the normalised Ct value of target gene which tells how many times the target gene is more expressed than the housekeeping gene.",
 "Ct is the number of PCR cycles. Since the gene expression doubles every cycle, the normalised Ct value should be put into power of 2 to get the fold change.",
-"<img src='MC2explain.gif' alt='explain'> <br><br> Therefore the fold change is 0.5."];
+"<img style='width:35vw;' src='MC2explain.gif' alt='explain'> <br><br> Therefore the fold change is 0.5."];
 var Checked = [];
 document.querySelector("#B").style.display = 'none';
 document.querySelector("#N").addEventListener('click', function(){
