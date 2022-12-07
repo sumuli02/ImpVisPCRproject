@@ -13,10 +13,10 @@ button {
     background: white;
 }
 
-    button:hover {
-        background-color: #3484F0;
-        color: white;
-    }
+button:hover {
+    background-color: #3484F0;
+    color: white;
+}
 
 input[type="radio"] {
     display: none;
