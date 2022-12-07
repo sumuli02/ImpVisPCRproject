@@ -20,7 +20,7 @@ MathJax = {
 
     <title>Project 3 - PCR analysis</title>
 </head>
-<body>
+<body onload="Loaded();">
 <div style="position:fixed; left: 18vw; bottom: 3vw; font-size: 1.5vw;"><a href="main2-4.html">< Prev </a>  </div>
     <div id="divider" style="width:15%;">
         <div style="width:16%; background: white; color:black;" id="menu">
@@ -77,7 +77,7 @@ MathJax = {
             </div>
             <div class="mc mc3" align="justify">
                 <h2>Question 3 of 3</h2>
-                <p style="font-size:1.7vw">After performing qPCR, a student obtained the following data:
+                <p style="font-size:1.7vw">After performing aPCR, a student obtained the following data:
                 <br>
                     <img src="MC2table.png" alt="table" height="165">
                     <br>
@@ -101,6 +101,9 @@ MathJax = {
                 <button id="Restart" type="submit" style="position:absolute; right: 12vw; display:none;" >Restart</button>
             </div>
             <div style="width: 35vw; margin:auto; line-height: 1.5vw; margin-top: 5vw; font-size:1.2vw;" class="MCQexplain" align="justify">We explain here why the chosen answer is wrong etc..</div>
+            <div style="width: 35vw; margin:auto; line-height: 1.5vw; margin-top: 5vw; font-size:1.2vw;" class="MCQexplain3" align="justify">
+                $∆∆Ct = ∆(Experimental) - ∆(Control)$ <br> $=(24-25)-(18-20)=1$ <br> $2^{∆∆Ct} = 0.5$ <br> Therefore the fold change is 0.5
+            </div>
             <div style="height: 8vw"></div>
 
         </div>
@@ -113,13 +116,13 @@ MathJax = {
 document.querySelector(".MCQexplain").style.display = 'none';
 document.querySelector(".mc2").style.display = 'none';
 document.querySelector(".mc3").style.display = 'none';
+document.querySelector(".MCQexplain3").style.display = 'none';
 
 var currentMC = 1;
 var lastMC = 3;
 var Answer = [1,3,3];
 var explain = ["This value is the normalised Ct value of target gene which tells how many times the target gene is more expressed than the housekeeping gene.",
-"Ct is the number of PCR cycles. Since the gene expression doubles every cycle, the normalised Ct value should be put into power of 2 to get the fold change.",
-"<img style='width:20vw;' src='MC2explain.gif' alt='explain'> <br><br> Therefore the fold change is 0.5."];
+"Ct is the number of PCR cycles. Since the gene expression doubles every cycle, the normalised Ct value should be put into power of 2 to get the fold change.", ""]
 var Checked = [];
 document.querySelector("#B").style.display = 'none';
 document.querySelector("#N").addEventListener('click', function(){
@@ -134,6 +137,7 @@ document.querySelector("#N").addEventListener('click', function(){
         document.querySelector("#Submit").style.display = "none";
         document.querySelector(".MCQexplain").style.display = "block";
         document.querySelector(".MCQexplain").innerHTML = explain[(currentMC-1)];
+        if(currentMC == 3){document.querySelector(".MCQexplain3").style.display = "block";};
     }
     else{
         document.querySelector("#Submit").style.display = "block";
@@ -176,11 +180,13 @@ document.querySelector("#B").addEventListener('click', function(){
     if(currentMC == lastMC -1)
     {
         document.querySelector("#N").style.display = 'block';
+        document.querySelector(".MCQexplain3").style.display = "none";
     };
     document.querySelector("#Restart").style.display = 'none';
 });
 function Reset(item, label) {
     item.style.backgroundColor="";
+    document.querySelector(".MCQexplain3").style.display = 'none';
 };
 function ButtonReset(item, label){
     item.checked = false;
@@ -215,6 +221,7 @@ document.querySelector("#Submit").addEventListener('click', function(){
         document.querySelector("#Submit").innerHTML =  "Check";
         if(currentMC != lastMC) document.querySelector("#N").style.display = "block";
         if(currentMC != 1) document.querySelector("#B").style.display = "block";
+        if(currentMC == lastMC) document.querySelector("#Restart").style.display = "block";
     }
     else{
         _userAnswerLabel.style.backgroundColor = "red";
@@ -223,7 +230,9 @@ document.querySelector("#Submit").addEventListener('click', function(){
         document.querySelector("#Submit").innerHTML =  "Retry";
         document.querySelector("#N").style.display = "none";
         document.querySelector("#B").style.display = "none";
+        document.querySelector("#Restart").style.display = "none";
         document.querySelector(".MCQexplain").style.display = "block";
+        if(currentMC == 3) document.querySelector(".MCQexplain3").style.display = "block";
         document.querySelector(".MCQexplain").innerHTML = explain[(currentMC-1)];
     }
     Checked.push(currentMC);
